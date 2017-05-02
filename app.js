@@ -6,7 +6,7 @@ server = require('http').createServer(app);
 
 app.configure(function() {
   app.set('port',  3000);
-  app.set('ipaddr',  "localhost");
+  
   app.locals.pretty = true;
   app.use(express.bodyParser());
   app.use(express.cookieParser());
@@ -28,6 +28,6 @@ app.post('/api/contact', api.add); //add contact
 app.put('/api/contact/:id', api.edit); //edit&update contact
 app.delete('/api/contact/:id', api.delete); //delete contact
 
-server.listen(app.get('port'), app.get('ipaddr'), function(){
-  console.log("Express server up and running for the API on port " + app.get('port') + " on IP " + app.get('ipaddr'));
+server.listen(app.get('port'), function(){
+  console.log("Express server up and running for the API on port " + app.get('port') );
 });
